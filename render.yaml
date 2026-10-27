@@ -1,0 +1,15 @@
+﻿# Render Blueprint. Push this folder to GitHub, then in Render: New -> Blueprint.
+services:
+  - type: web
+    name: game-render-relay
+    runtime: node
+    plan: free
+    region: oregon
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MAX_PLAYERS
+        value: "8"
